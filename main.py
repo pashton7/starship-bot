@@ -9,6 +9,11 @@ from itertools import cycle
 
 from database import DatabaseManager
 
+from dotenv import load_dotenv
+
+load_dotenv("bot.env")
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 #intents = discord.Intents.default()
 #client = commands.Bot(command_prefix = '!', intents=intents)
@@ -68,19 +73,6 @@ class BotMain(commands.Bot):
        
 
 
-"""
-@client.event
-async def on_ready():
-        change_status.start()
-        await client.change_presence(status=discord.Status.online)
-        await client.tree.sync()
-        print('Bot is online.')
 
-
-@client.tree.command(name="warn", description="Warn a user", options = interactions.)
-@app_commands.describe(text = "Warn")
-async def warnCommand(interaction: discord.Interaction, text: str):
-    await interaction.response.send_message(f"{text}")
-"""
 client = BotMain()
-client.run('MTQyMjY3Nzg2MzQyMDc5Mjk2Mw.GCOqKo.RXqL2NzHJ7eNngaJ1I145QBSrBmA5BWYfX8CHI')
+client.run(BOT_TOKEN)
